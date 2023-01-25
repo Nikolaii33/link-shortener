@@ -4,7 +4,7 @@ const FILE_NAME = 'data.txt';
 
 function getLinkByToken(string $token): string{
     if (checkFile()) {
-        $allLinks = json_decode(file_get_contents(FILE_NAME), true);
+        $allLinks = json_decode(file_get_contents(FILE_NAME), true) ?? [];
         foreach ($allLinks as $link) {
             if ($link['token'] === $token) {
                 return $link['link'];
@@ -31,7 +31,7 @@ function checkUrl($url) {
 }
 
 function updateLink($token) {
-    $allLinks = json_decode(file_get_contents(FILE_NAME), true);
+    $allLinks = json_decode(file_get_contents(FILE_NAME), true) ?? [];
     foreach ($allLinks as $key => $link) {
         if ($link['token'] === $token) {
             $allLinks[$key]['transition']++;
