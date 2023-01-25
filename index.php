@@ -32,7 +32,7 @@ if (mb_strlen($_SERVER['REQUEST_URI']) > 1) {
 </head>
 <body>
 <div class="container text-center" >
-    <?php if(mb_strlen($errorPage) > 0) { ?>
+    <?php if(isset($errorPage) && mb_strlen($errorPage) > 0) { ?>
         <div class="errorPage" style="margin-top: 20px;"><strong style="color: red"><?php echo $errorPage ?></strong></div>
     <?php } ?>
     <h1 style="margin-top: 10%">Сократитель ссылок</h1>
